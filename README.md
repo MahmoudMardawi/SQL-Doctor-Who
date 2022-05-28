@@ -1,5 +1,4 @@
 # SQL-Doctor-Who
-# SQL: Doctor Who
 
 ## **Before you start**
 
