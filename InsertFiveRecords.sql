@@ -48,8 +48,8 @@ EpisodeNumber int null,
 EpisodeType VARCHAR(250) NOT NULL,
 Title Text NOT NULL,
 EpisodeDate Date NULL DEFAULT NULL,
-AuthorId INT NOT NULL REFERENCES tblAuthor (AuthorId),
-DoctorId int not null references tblDoctor (DoctorId),
+AuthorId INT  REFERENCES tblAuthor (AuthorId),
+DoctorId int  references tblDoctor (DoctorId),
 Notes Text NULL DEFAULT NULL
 );
 
@@ -139,6 +139,10 @@ VALUES (4, 1, 4, N'Normal episode', N'Aliens of London (Part 1)', CAST(0x932B0B0
 insert tblEpisode(EpisodeId, SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, DoctorId, Notes)
 VALUES (5, 1, 5, N'Normal episode', N'World War Three (Part 2)', CAST(0x9A2B0B00 AS Date), 2, 15, NULL)
 
+ALTER TABLE tblEpisode ALTER COLUMN DoctorId int NULL;
+insert tblEpisode(EpisodeId, SeriesNumber, EpisodeNumber, EpisodeType, Title, EpisodeDate, AuthorId, DoctorId, Notes)
+VALUES (6, 1, 5, N'Normal episode', N'World War Three (Part 2)', CAST(0x9A2B0B00 AS Date), 2, NULL, NULL)
+
 GO
 
 /*
@@ -173,3 +177,4 @@ INSERT tblEpisodeEnemy(EpisodeId, EnemyId) values (1, 1)
 INSERT tblEpisodeEnemy(EpisodeId, EnemyId) values (1, 2)
 
 GO
+ 
